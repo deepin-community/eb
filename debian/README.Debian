@@ -1,0 +1,13 @@
+EB Library for Debian
+---------------------
+
+EB Library, C library for accessing electronic books, for Debian is
+provided with the following separated packages.
+
+  libebXX     - shared libraries
+  libebXX-dev - development libraries and headers
+  eb-utils    - utility commands
+  eb-doc      - document files
+  (XX is a SONAME version)
+
+ -- Tatsuya Kinoshita <tats@debian.org>, Sun, 11 Feb 2007 02:33:29 +0900

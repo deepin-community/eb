@@ -1,0 +1,4 @@
+usr/bin/ebzip usr/bin/ebunzip
+usr/bin/ebzip usr/bin/ebzipinfo
+usr/share/man/man1/ebzip.1 usr/share/man/man1/ebunzip.1
+usr/share/man/man1/ebzip.1 usr/share/man/man1/ebzipinfo.1

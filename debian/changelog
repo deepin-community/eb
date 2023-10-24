@@ -1,5 +1,361 @@
-template-repository (1.0-1) unstable; urgency=medium
+eb (4.4.3-14) unstable; urgency=medium
 
-  * Initial release
+  * Update debian/copyright
+  * Update Standards-Version to 4.6.0
+  * Update 010_debian.patch to 2022-04-28
 
- -- Tsic404 <liuheng@deepin.org>  Sat, 28 Jan 2023 13:46:49 +0800
+ -- Tatsuya Kinoshita <tats@debian.org>  Thu, 28 Apr 2022 22:58:07 +0900
+
+eb (4.4.3-13) unstable; urgency=medium
+
+  [ Ondřej Nový ]
+  * d/changelog: Remove trailing whitespaces
+
+  [ Debian Janitor ]
+  * Apply multi-arch hints.
+    + eb-doc: Add Multi-Arch: foreign.
+  * debian/copyright: use spaces rather than tabs to start continuation lines.
+  * Remove Section on libeb16 that duplicates source.
+
+  [ Tatsuya Kinoshita ]
+  * Add Rules-Requires-Root: no
+  * Use debhelper-compat 13
+  * Update debian/copyright
+  * Update Standards-Version to 4.5.0
+  * Adjust manpages handling for help2man 1.47.15
+  * Set SOURCE_DATE_EPOCH with ChangeLog for manpages
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Sun, 08 Nov 2020 21:44:13 +0900
+
+eb (4.4.3-12) unstable; urgency=medium
+
+  * Update debhelper compat version to 10
+  * Don't use deprecated autotools-dev tools
+  * Provide package name libeb-dev
+  * Migrate from anonscm.debian.org to salsa.debian.org
+  * Update debian/copyright
+  * Update Standards-Version to 4.1.3
+  * Use -a instead of deprecated -s in debian/rules
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Sun, 21 Jan 2018 20:08:01 +0900
+
+eb (4.4.3-11) unstable; urgency=medium
+
+  * Update 010_debian.patch to 2016-10-09
+    - Fix return value assigned to variable of wrong type (closes: #833085)
+  * Typo fix for debian/changelog
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Sun, 09 Oct 2016 10:50:42 +0900
+
+eb (4.4.3-10) unstable; urgency=medium
+
+  * Drop the calls of faketime (closes: #829416)
+  * Make symlinks for additional documents
+  * Update debian/copyright
+  * Update Vcs-Browser to https
+  * Update Standards-Version to 3.9.8
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Wed, 06 Jul 2016 00:03:36 +0900
+
+eb (4.4.3-9) unstable; urgency=medium
+
+  * Build-Depend on faketime to specify timestamps for help2man
+  * Simplify version string for manpages
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Mon, 20 Jul 2015 20:59:19 +0900
+
+eb (4.4.3-8) unstable; urgency=medium
+
+  * New patch 010_debian.patch from Debian's development branch
+    - Fix too many arguments for format string (closes: #776602)
+    - Correct parameter declarations of make_missing_directory()
+      (closes: #748030)
+    - Fix that url_parts_parse() performs a NULL-pointer dereference
+      (closes: #715855)
+  * Update debian/copyright
+  * Update Vcs-Browser
+  * Update Standards-Version to 3.9.6
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Tue, 28 Apr 2015 20:32:05 +0900
+
+eb (4.4.3-7) unstable; urgency=low
+
+  * Use autotools-dev to update config.* at build time (closes: #727366)
+  * Add Vcs-Git and Vcs-Browser
+  * Update Standards-Version to 3.9.4
+  * Update debian/copyright
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Sun, 27 Oct 2013 23:24:01 +0900
+
+eb (4.4.3-6) unstable; urgency=low
+
+  * debian/rules: Use dpkg-buildflags to support hardening flags
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Sun, 08 Jul 2012 15:20:19 +0900
+
+eb (4.4.3-5) unstable; urgency=low
+
+  * Don't install examples/Makefile which is arch-dependent (closes: #674490)
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Fri, 25 May 2012 22:45:41 +0900
+
+eb (4.4.3-4) unstable; urgency=low
+
+  * debian/rules: Don't embed the value of DEB_HOST_MULTIARCH in eb.conf.
+  * debian/control (libeb16-dev): Depends on dpkg-dev (>= 1.16).
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Mon, 16 Apr 2012 04:17:28 +0900
+
+eb (4.4.3-3) unstable; urgency=low
+
+  * Support multiarch.
+    - debian/control, debian/compat: Build-Depends on debhelper (>= 8.1.3).
+    - debian/control (libeb16): Pre-Depends on ${misc:Pre-Depends}.
+    - debian/control (libeb16, libeb16-dev): Add Multi-Arch: same.
+    - debian/rules: Set DEB_HOST_MULTIARCH and use it.
+    - debian/*.files: Replace /usr/lib with /usr/lib/*.
+  * debian/copyright: Update copyright-format version to 1.0.
+  * debian/control: Update Standards-Version to 3.9.3.
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Sun, 15 Apr 2012 21:53:41 +0900
+
+eb (4.4.3-2) unstable; urgency=low
+
+  * debian/rules: Add --no-info to help2man to suppress pointer to Texinfo
+    manual.
+  * debian/copyright, debian/changelog: Typo fix.
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Sun, 15 May 2011 17:45:24 +0900
+
+eb (4.4.3-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control, debian/shlibs.local, debian/libeb*: Change the package
+    names from libeb13* to libeb16*.
+  * debian/libeb16-dev.files: Don't install the *.la file. (closes: #621186)
+  * debian/eb-doc.docs: Use wildcard for ChangeLog.*.
+  * debian/patches: Removed.
+  * debian/eb-utils.manpages: Removed.
+  * debian/control: Update Standards-Version to 3.9.2.
+  * debian/copyright: Switch to the DEP-5 format.
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Tue, 19 Apr 2011 23:32:06 +0900
+
+eb (4.4.2-2) unstable; urgency=low
+
+  * debian/patches/01-revert-to-4.4.1.patch: Revert to libeb.so.13.1.0 due
+    to the binary incompatibility of libeb.so.13.2.0. (closes: #571458)
+  * debian/patches/02-fix-text-mode.patch: Bug fix for setting text mode.
+    (taken from libeb.so.13.2.0)
+  * debian/README.Debian-source: Removed.
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Tue, 02 Mar 2010 21:46:44 +0900
+
+eb (4.4.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    - Add ${misc:Depends} to Depends.
+    - Update Standards-Version to 3.8.4.
+  * debian/copyright: Updated.
+  * Switch to dpkg-source 3.0 (quilt) format.
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Mon, 22 Feb 2010 23:58:38 +0900
+
+eb (4.4.1-1) unstable; urgency=low
+
+  * New upstream release. (closes: #538404)
+    - Fix that iconv_open doesn't work. (closes: #502266)
+  * debian/control, debian/shlibs.local, debian/libeb*: Change the soname
+    to libeb13 from libeb12.
+  * debian/control:
+    - Add libeb12 to Conflicts and Replaces.
+    - Update Standards-Version to 3.8.2.
+  * debian/README.Debian-source: Update to mention the upstream *.tar.lzma
+    file.
+  * debian/watch: Expect *.tar.* instead of *.tar.bz2.
+  * debian/compat, debian/control: Update debhelper version to 7.
+  * debian/rules:
+    - Use dh_prep instead of `dh_clean -k'.
+    - Set LC_ALL=C for sed.
+  * debian/copyright: Updated.
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Sun, 26 Jul 2009 07:12:19 +0900
+
+eb (4.3.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    - Move `Homepage:' from Description to the header.
+    - Use ${binary:Version} instead of ${Source-Version}.
+    - Set Standards-Version to 3.7.3.
+  * debian/rules: Don't ignore an error of `make distclean'.
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Sun, 03 Feb 2008 20:35:45 +0900
+
+eb (4.3-3) unstable; urgency=low
+
+  * libeb12 conflicts with eb-utils (<= 4.3-1) for `eb.mo'.
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Sun, 11 Feb 2007 13:51:24 +0900
+
+eb (4.3-2) unstable; urgency=low
+
+  * New maintainer. (with previous maintainer's permission)
+  * Fix FTBFS on GNU/k*BSD with updated libtool scripts. (closes: #342680)
+  * Fix missing *.mo files. (closes: #253708)
+  * Cleanup debian/* scripts.
+
+ -- Tatsuya Kinoshita <tats@debian.org>  Sun, 11 Feb 2007 02:02:23 +0900
+
+eb (4.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Susumu OSAWA <susumuo@debian.org>  Sat, 20 Jan 2007 15:47:18 +0900
+
+eb (4.2.2-1) unstable; urgency=low
+
+  * New upstream releases (Closes: #294710)
+
+ -- Susumu OSAWA <susumuo@debian.org>  Mon, 12 Dec 2005 01:53:32 +0900
+
+eb (3.3.2-4) unstable; urgency=high
+
+  * Add conflicts & replaces with libeb6
+
+ -- Susumu OSAWA <susumuo@debian.org>  Mon,  8 Sep 2003 10:46:13 +0900
+
+eb (3.3.2-3) unstable; urgency=high
+
+  * Change so version to 7:2:0 because there is no backward compatibility
+    with old versions (Closes: #193377).
+
+ -- Susumu OSAWA <susumuo@debian.org>  Mon,  8 Sep 2003 03:41:00 +0900
+
+eb (3.3.2-2) unstable; urgency=low
+
+  * Change libeb-dev's section to libdevel
+
+ -- Susumu OSAWA <susumuo@debian.org>  Mon, 21 Apr 2003 23:53:07 +0900
+
+eb (3.3.2-1) unstable; urgency=low
+
+  * New upstream release (Closes: #189433)
+  * Generate man pages with help2man program
+
+ -- Susumu OSAWA <susumuo@debian.org>  Sat, 19 Apr 2003 11:32:28 +0900
+
+eb (3.2.1-1) unstable; urgency=low
+
+  * New upstream release (Closes: #138374)
+  * Move /etc/eb.conf to libeb6-dev (Closes: #135425)
+
+ -- Susumu OSAWA <susumuo@debian.org>  Fri, 15 Mar 2002 21:38:07 +0900
+
+eb (3.2-2) unstable; urgency=low
+
+  * Reinstall /etc/eb.conf because ndtpd requires eb.conf when it builds.
+
+ -- Susumu OSAWA <susumuo@debian.org>  Wed, 20 Feb 2002 22:53:53 +0900
+
+eb (3.2-1) unstable; urgency=low
+
+  * New upstream release
+  * Remove /etc/eb.conf from libeb6 because it is not config file
+        (Closes: Bug#126140,Bug#132213).
+
+ -- Susumu OSAWA <susumuo@debian.org>  Wed, 20 Feb 2002 01:10:55 +0900
+
+eb (3.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Susumu OSAWA <susumu-o@debian.or.jp>  Mon, 18 Feb 2002 00:30:58 +0900
+
+eb (3.0.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Susumu OSAWA <susumuo@debian.org>  Fri, 20 Jul 2001 09:26:47 +0900
+
+eb (3+0beta1-3) unstable; urgency=low
+
+  * Remove libeb's conflict in libeb4.
+  * Missing shlibs.local (Closes: Bug#97999).
+
+ -- Susumu OSAWA <susumuo@debian.org>  Sun, 20 May 2001 08:52:03 +0900
+
+eb (3+0beta1-2) unstable; urgency=low
+
+  * Missing build-depends for zlib1g-dev (Closes: Bug#97787).
+
+ -- Susumu OSAWA <susumuo@debian.org>  Fri, 18 May 2001 02:48:41 +0900
+
+eb (3+0beta1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Susumu OSAWA <susumuo@debian.org>  Mon, 14 May 2001 04:42:04 +0900
+
+eb (2.3.8-1) unstable; urgency=low
+
+  * New upstream release
+  * Applied eb-2.3.8+ patch.
+
+ -- Susumu OSAWA <susumu-o@debian.or.jp>  Fri, 22 Sep 2000 00:47:51 +0900
+
+eb (2.3.6-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Susumu OSAWA <susumu-o@debian.or.jp>  Mon, 13 Dec 1999 06:10:58 +0900
+
+eb (2.3.5-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Susumu OSAWA <susumu-o@debian.or.jp>  Sun,  7 Nov 1999 01:38:48 +0900
+
+eb (2.3.4-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Susumu OSAWA <susumu-o@debian.or.jp>  Sun, 31 Oct 1999 01:44:17 +0900
+
+eb (2.3.3-2) unstable; urgency=low
+
+  * Regenerate ebinfo-ja.info (closes: Bug#45634).
+
+ -- Susumu OSAWA <susumu-o@debian.or.jp>  Wed, 22 Sep 1999 23:52:40 +0900
+
+eb (2.3.3-1) unstable; urgency=low
+
+  * New upstream release
+  * Remove ChangeLog.gz.(Close Bug#45446)
+
+ -- Susumu OSAWA <susumu-o@debian.or.jp>  Mon, 20 Sep 1999 06:34:18 +0900
+
+eb (2.3-3) unstable; urgency=low
+
+  * Move /usr/info to /usr/share
+
+ -- Susumu OSAWA <susumu-o@debian.or.jp>  Sat, 18 Sep 1999 00:33:21 +0900
+
+eb (2.3-2) unstable; urgency=low
+
+  * Install all info files.(Close Bug#39662)
+
+ -- Susumu OSAWA <susumu-o@debian.or.jp>  Fri, 17 Sep 1999 23:56:23 +0900
+
+eb (2.3-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Susumu OSAWA <susumu-o@debian.or.jp>  Sun, 23 May 1999 02:14:10 +0900
+
+eb (2.2.2-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Susumu OSAWA <susumu-o@debian.or.jp>  Thu,  1 Apr 1999 00:46:08 +0900
